@@ -26,11 +26,11 @@ jobs:
           dotnet-version: 9.0.x
 
       - name: Restore dependencies
-        run: dotnet restore Backend.sln
+        run: dotnet restore backend.sln
         working-directory: backend
 
       - name: Build solution
-        run: dotnet build --no-restore --configuration Release Backend.sln
+        run: dotnet build --no-restore --configuration Release backend.sln
         working-directory: backend
 
       - name: Upload build artifacts
@@ -62,9 +62,9 @@ jobs:
           dotnet-version: 9.0.x
 
       - name: Restore dependencies
-        run: dotnet restore Backend.sln
+        run: dotnet restore backend.sln
         working-directory: backend
 
       - name: Run unit tests
-        run: dotnet test --no-build --configuration Release --logger "trx" Backend.sln
+        run: dotnet test --no-build --configuration Release --logger "trx" backend.sln
         working-directory: backend
