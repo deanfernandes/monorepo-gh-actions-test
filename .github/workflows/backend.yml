@@ -9,6 +9,8 @@ on:
     paths:
       - 'backend/**'
     branches: [ main ]
+  schedule:
+    - cron: '0 0 * * 0'  # every Sunday at 00:00 UTC
   workflow_dispatch:
 
 jobs:
