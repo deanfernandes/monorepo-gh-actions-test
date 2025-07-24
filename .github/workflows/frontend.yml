@@ -61,8 +61,8 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Copy files to remote server via SSH
-        uses: appleboy/ssh-action@v1
+      - name: SSH Remote Commands
+        uses: appleboy/ssh-action@v1.2.2
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
