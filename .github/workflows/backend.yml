@@ -70,3 +70,24 @@ jobs:
       - name: Run unit tests
         run: dotnet test --no-build --configuration Release --logger "trx" backend.sln
         working-directory: backend
+    
+  deploy:
+    name: Build and Push Docker Image
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Docker Login
+        uses: docker/login-action@v3.4.0
+        with:
+          username: ${{ vars.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and push Docker images
+        uses: docker/build-push-action@v6.18.0
+        with:
+          push: true
+          tags: ${{ secrets.DOCKER_REPOSITORY}}:latest
