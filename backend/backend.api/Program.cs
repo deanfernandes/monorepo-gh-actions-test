@@ -35,6 +35,8 @@ app.MapGet("/weatherforecast", () =>
 
 app.MapGet("/hello", () => "Hello Wrld!");
 
+app.MapGet("/hi", () => "Hi Wrld!");
+
 app.MapGet("/olá", () => "Olá Mundo!");
 
 app.Run();
